@@ -1,0 +1,68 @@
+<div class="article">
+    <div class="header">
+        <div class="title">
+            <h1>Mac and chee­se met ham en broc­co­li­rijst</h1>
+        </div>
+    </div>
+    <div class="teaser">
+        <img src="https://static.ah.nl/static/recepten/img_RAM_PRD123113_1600x560_JPG.jpg">
+    </div>
+    <div class="content">
+        <div class="p-grid p-justify-end buttons">
+            <button pButton class="p-button-rounded p-button-secundary p-ripple p-button p-component p-button-icon-only" icon="pi pi-share-alt"></button>
+            <button *ngIf="favorite" pButton class="p-button-rounded p-button-help p-ripple p-button p-component p-button-icon-only" icon="pi pi-star" (click)="favorite = !favorite"></button>
+            <button *ngIf="!favorite" pButton class="p-button-rounded p-button-help p-ripple p-button p-component p-button-icon-only" icon="pi pi-star-o" (click)="favorite = !favorite"></button>
+        </div>
+        <div class="p-grid">
+            <div class="p-col-3">
+                <p-fieldset legend="Ingredients">
+                    <ul class="ingredients">
+                        <li>2 el traditionele olijfolie</li>
+                        <li>300 g rijst</li>
+                        <li>900 g diepvries groenten</li>
+                        <li>650 ml water</li>
+                        <li>225 g halloumi kaas</li>
+                    </ul>
+                </p-fieldset>
+            </div>
+            <div class="p-col">
+                <p-fieldset legend="Description">
+                    <ol>
+                        <li>
+                            Verhit het water met de bouillon in een hapjespan, doe de macaroni erbij en breng aan de
+                            kook. Doe de deksel op de pan en laat in 10 min. op laag vuur garen. Roer af en toe. De
+                            macaroni hoeft niet afgegoten te worden.
+                        </li>
+                        <li>
+                            Snijd ondertussen de ham in stukjes en rasp de kaas. Snijd de selderij fijn. Meng de
+                            roomkaas, erwten, broccolirijst, ham, cheddar en selderij door de macaroni en verwarm 5
+                            min. op laag vuur. Roer regelmatig. Breng op smaak met peper en serveer direct.
+                        </li>
+                    </ol>
+                </p-fieldset>
+            </div>
+        </div>
+        <div class="p-grid">
+            <div class="p-col">
+                <p-fieldset legend="Comments">
+                    <div class="p-grid">
+                        <div class="p-col-12" class="comments">
+                            <ol>
+                                <li *ngFor="let comment of comments; index as i">
+                                    <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-text close"></button>
+                                    <div [innerHtml]="comment"></div> 
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="p-col-12">
+                        <p-editor [(ngModel)]="comment" [style]="{'height':'200px'}"></p-editor>
+                    </div>
+                    <div class="p-grid p-justify-end buttons">
+                        <button pButton type="button" label="Add comment" (click)="addComment()"></button>
+                    </div>
+                </p-fieldset>
+            </div>
+        </div>
+    </div>
+</div>
